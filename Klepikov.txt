@@ -1,0 +1,20 @@
+ create table PARTICIPANTS
+ (
+ Id number(4,0) primary key check(Id>1000),
+ Fname varchar(100) not null,
+ AcademicDegree varchar(50) default 'Non-Degree' check (AcademicDegree='Bachelor' or AcademicDegree='Master' or AcademicDegree='Ph.D' or AcademicDegree='Sc.D' or AcademicDegree='Non-Degree'),
+ PlaceOfWork varchar(100) not null,
+ Position varchar(30) not null,
+ Citizenship varchar(30) not null,
+ Bdate date check(Bdate>to_date('01.01.1996', 'dd.mm.yyyy'))
+ );
+
+  create table Papers
+ (
+ Id_r number(3,0),
+ Title varchar(30) not null,
+ Id number(4,0),
+ Type char(1) default 'O' check (Type='P' or Type='O'),
+ SectionName number(2) not null,
+ Sdate date not null
+ );
